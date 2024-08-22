@@ -8,19 +8,19 @@ import plotly.express as px
 
 ## loading data
 df = pd.read_csv('tips.csv')
-st.set_page_config(page_title='General Graphing Dashboard - لوحة معلومات الرسوم البيانية العامة',page_icon=None,
+st.set_page_config(page_title='General Graphing Dashboard',page_icon=None,
                    layout='wide',initial_sidebar_state='auto', menu_items=None)
-st.title('General Graphing Dashboard - لوحة معلومات الرسوم البيانية العامة')
-st.subheader('Tips Data Set - مجموعة بيانات البقشيس')
+st.title('General Graphing Dashboard')
+st.subheader('Tips Data Set')
 ## Sidebar
-st.sidebar.header('Filters - قوائم الاختيار')
+st.sidebar.header('Filters')
 st.sidebar.write('')
-figure_type = st.sidebar.selectbox('Select figure type - اختر نوع الرسم البياني',['px.scatter','px.bar','px.pie','px.donut'])
-x_data = st.sidebar.selectbox('Select X axis data - اختر بيانات محور السينات',['sex','smoker','day','time','Payer Name'])
-y_data = st.sidebar.selectbox('Select Y axis data - اختر بيانات محور الصادات',['total_bill','tip','size','price_per_person'])
+figure_type = st.sidebar.selectbox('Select figure type',['px.scatter','px.bar','px.pie','px.donut'])
+x_data = st.sidebar.selectbox('Select X axis data',['sex','smoker','day','time','Payer Name'])
+y_data = st.sidebar.selectbox('Select Y axis data',['total_bill','tip','size','price_per_person'])
 st.sidebar.write('')
 st.sidebar.markdown('Made with :heart: by: [Suhail Sallam](https://www.youtube.com/@suhailsallam)')
-st.sidebar.markdown('[Suhail Sallam](https://www.youtube.com/@suhailsallam) تم انشاؤه مع  :heart: من قبل : ')
+
 
 ## body
 # row 1
@@ -49,16 +49,16 @@ div[data-testid="metric-container"] > label[data-testid="stMetricLabel"] > div {
 , unsafe_allow_html=True)
 
 col_11, col_12, col_13, col_14 = st.columns(4)
-col_11.metric('Sum of  Total Bills مجموع قيم الفواتير',df['total_bill'].sum().round(2))
-col_12.metric('Average Total Bills معدل قيم الفواتير',df['total_bill'].mean().round(2))
-col_13.metric('Minimum Total Bills قيمة أقل فاتورة',df['total_bill'].min().round(2))
-col_14.metric('Maximum Total Bills قيمة أعلى فاتورة',df['total_bill'].max().round(2))
+col_11.metric('Sum of  Total Bills',df['total_bill'].sum().round(2))
+col_12.metric('Average Total Bills',df['total_bill'].mean().round(2))
+col_13.metric('Minimum Total Bills',df['total_bill'].min().round(2))
+col_14.metric('Maximum Total Bills',df['total_bill'].max().round(2))
 # row 2
 col_21, col_22, col_23, col_24 = st.columns(4)
-col_21.metric('sum of  Tips مجموع قيم البقشيش',df['tip'].sum().round(2))
-col_22.metric('Average Tips معدل قيمة البقشيش',df['tip'].mean().round(2))
-col_23.metric('Minimum Tip أقل قيمة بقشيش',df['tip'].min().round(2))
-col_24.metric('Maximum Tip أعلى قيمة بقشيش',df['tip'].max().round(2))
+col_21.metric('sum of  Tips',df['tip'].sum().round(2))
+col_22.metric('Average Tips',df['tip'].mean().round(2))
+col_23.metric('Minimum Tip',df['tip'].min().round(2))
+col_24.metric('Maximum Tip',df['tip'].max().round(2))
 
 #row 3
 
